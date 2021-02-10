@@ -1,4 +1,4 @@
-![](https://github.com/danielwilczak101/EasyAI/blob/media/images/EasyAI_logo_temp.png)
+![](https://raw.githubusercontent.com/danielwilczak101/EasyAI/media/images/EasyAI_logo.jpg)
 
 # EasyAI - Machine Learning online made Easy
 
