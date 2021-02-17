@@ -1,24 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
-postsDic = [
-    {
-        'author': 'admin',
-        'title': 'News Post 1',
-        'content': 'Test Post content',
-        'date_posted': 'August, 27, 2021'
-    },
-    {
-        'author': 'admin2',
-        'title': 'News Post 2',
-        'content': 'Test Post content2',
-        'date_posted': 'August, 28, 2021'
-    }
-]
+from .models import Post
 
 def home(request):
     context = {
-        'posts': postsDic
+        'posts': Post.objects.all().order_by('-id')
     }
     return render(request, 'news/home.html', context)
     
