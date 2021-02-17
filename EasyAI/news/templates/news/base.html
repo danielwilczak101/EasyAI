@@ -46,11 +46,18 @@
     <main role="main" class="container">
       <div class="row">
         <div class="col-md-8">
+          {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+          {% endif %}
           {% block content %}{% endblock %}
         </div>
         <div class="col-md-4">
           <div class="content-section">
-            <h3>Shortcuts</h3>
+            <h3>Navigation</h3>
               <ul class="list-group">
                 <li class="list-group-item list-group-item-light">Latest News</li>
                 <li class="list-group-item list-group-item-light">etc</li>
