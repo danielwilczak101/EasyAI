@@ -10,3 +10,6 @@ def home(request):
     
 def about(request):
     return render(request, 'news/about.html', {'title': 'About'})
+    
+def form(request):
+    return render(request, 'news/form.html', {'title': 'Form'})
