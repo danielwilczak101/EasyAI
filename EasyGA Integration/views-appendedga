@@ -1,0 +1,20 @@
+#this import is at the top of the views.py file
+from EasyGA import GA
+...
+#this is also in the views.py file, underneath the other pages created along the same format
+def easyga(request):
+    ga = GA()
+    a=1 #this number determines how many evolutions there are, will be changed later using form
+    ga.evolve(a)
+    context = {
+        'population': ga.population,
+        'best': ga.population[0]
+    }
+    return render(request, 'blog/gatest.html', context)
+    
+#in a new file gatest.html with the other html files, this code prints ga stuff to the web page
+{% extends "blog/base.html" %}
+{% block content %}
+        <h1>total population is <br/> {{population}}</h1>
+        <h2>best one is <br/> {{best}}</h2>
+{% endblock content %}
