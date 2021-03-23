@@ -1,4 +1,14 @@
 {% extends "news/base.html" %}
 {% block content %}
-    <h1>Form</h1>
+
+    <div class="scrollable">
+        <h1>total population is <br/> {{population}}</h1>
+        <h2>best one is <br/> {{best}}</h2>
+    </div>
+<style>
+    .scrollable{
+        height: 200px;
+        overflow-y:auto;
+    }
+</style>
 {% endblock content %}

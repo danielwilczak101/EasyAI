@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Post
+from EasyGA import GA
 
 def home(request):
     context = {
@@ -12,4 +13,11 @@ def about(request):
     return render(request, 'news/about.html', {'title': 'About'})
     
 def form(request):
-    return render(request, 'news/form.html', {'title': 'Form'})
+    ga = GA()
+    a=1 #this number determines how many evolutions there are, will be changed later using form
+    ga.evolve(a)
+    context = {
+        'population': ga.population,
+        'best': ga.population[0]
+    }
+    return render(request, 'news/form.html', {'title': 'Form'},context)
