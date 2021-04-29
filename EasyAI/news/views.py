@@ -20,4 +20,14 @@ def form(request):
         'population': ga.population,
         'best': ga.population[0]
     }
-    return render(request, 'news/form.html', {'title': 'Form'},context)
+    return render(request, 'news/form.html',context)
+    
+def easyga(request):
+    ga = GA()
+    a=1 #this number determines how many evolutions there are, will be changed later using form
+    ga.evolve(a)
+    context = {
+        'population': ga.population,
+        'best': ga.population[0]
+    }
+    return render(request, 'news/easyga.html', context)

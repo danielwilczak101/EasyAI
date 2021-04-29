@@ -1,14 +1,20 @@
 {% extends "news/base.html" %}
 {% block content %}
 
-    <div class="scrollable">
-        <h1>total population is <br/> {{population}}</h1>
-        <h2>best one is <br/> {{best}}</h2>
-    </div>
-<style>
-    .scrollable{
-        height: 200px;
-        overflow-y:auto;
-    }
-</style>
+
+<p>
+
+<button id="myButton" class="float-left submit-button" >EasyGA</button>
+
+<script type="text/javascript">
+    document.getElementById("myButton").onclick = function () {
+        location.href = "{% url 'EasyGA' %}";
+    };
+</script>
+
+</p>
+
+
+
+
 {% endblock content %}
