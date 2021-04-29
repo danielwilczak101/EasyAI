@@ -1,0 +1,20 @@
+{% extends "news/base.html" %}
+{% block content %}
+
+
+<p>
+
+<button id="myButton" class="float-left submit-button" >EasyGA</button>
+
+<script type="text/javascript">
+    document.getElementById("myButton").onclick = function () {
+        location.href = "{% url 'EasyGA' %}";
+    };
+</script>
+
+</p>
+
+
+
+
+{% endblock content %}
