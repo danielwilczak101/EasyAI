@@ -2,28 +2,36 @@ from PIL import Image
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
-opt_size = [28, 28]
+#Saves preset image on computer as the user image
+filename = '/Users/liamkehoe/Downloads/brainfeeder_beeple-vjclips/hello.jpg'
 
-#Check image and saves as variable
-try:
-    #Saves preset image on computer as the user image
-    user_img = Image.open('/Users/liamkehoe/Downloads/brainfeeder_beeple-vjclips/hello.jpg')
-except IOError:
-    pass
+def preprocess(filename):
+    opt_size = [28, 28]
 
-#Checks to see if image is correct size, and if not, shrinks it down to the correct size
-if user_img.size[0] == opt_size[0] & user_img.size[1] == opt_size[1]:
-    print('Image is already 28 x 28')
-else:
-    processed_img = user_img.resize([28, 28])
+    #Check image and saves as variable
+    try:
+        user_img = Image.open(filename)
+    except IOError:
+        pass
 
-#Create the plot to display the images
-plt.figure()
+    #Checks to see if image is correct size, and if not, shrinks it down to the correct size
+    if user_img.size[0] == opt_size[0] & user_img.size[1] == opt_size[1]:
+        print('Image is already 28 x 28')
+    else:
+        processed_img = user_img.resize([28, 28])
 
-f, axarr = plt.subplots(2,1)
+    #Create the plot to display the images
+    plt.figure()
 
-axarr[0].imshow(user_img)
-axarr[1].imshow(processed_img)
+    f, axarr = plt.subplots(2,1)
 
-plt.axis('off')
-plt.show()
+    axarr[0].imshow(user_img)
+    axarr[1].imshow(processed_img)
+
+    plt.axis('off')
+    plt.show()
+
+    return processed_img
+
+#Tests function with presaved photo
+preprocess(filename)
